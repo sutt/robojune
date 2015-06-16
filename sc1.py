@@ -7,12 +7,17 @@ import time
 device = '/dev/ttyACM0'
 baud = 115200
 
-conn = serial.Serial(device,baud)
+if len(sys.argv) > 1:
+    timeout = sys.argv[1]
+else:
+    timeout = 10
+
+conn = serial.Serial(device,baud,timeout=timeout)
 l = conn.write("get pos\n")
 print l
 ll = conn.readline()
-ll += conn.readline()
-ll += conn.readline()
+ll += conn.readline(timeout = 4)
+#ll += conn.readline()
 print ll
 
 def sendc(cmd):
@@ -22,5 +27,8 @@ def sendc(cmd):
   print l
   return 0
 
+def readc(conn, timeout):
+    return 1
+  
 sendc( " ".join(sys.argv[1:]) )
 conn.close()
