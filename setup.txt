@@ -1,1 +1,8 @@
+from sut-pc/desktop/robojune/:
+
 curl -u 'sutt' https://api.github.com/user/repos -d  '{"name":"robojune"}'
+
+from ssh: pi/desktop/
+git clone https://github.com/sutt/robojune.git
+
+
