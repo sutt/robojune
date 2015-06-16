@@ -7,10 +7,11 @@ import time
 device = '/dev/ttyACM0'
 baud = 115200
 
-if len(sys.argv) > 1:
-    timeout = sys.argv[1]
-else:
-    timeout = 10
+#if len(sys.argv) > 1:
+#    timeout = int(sys.argv[1])
+#else:
+#    timeout = 10
+timeout = 10
 
 conn = serial.Serial(device,baud,timeout=timeout)
 l = conn.write("get pos\n")
