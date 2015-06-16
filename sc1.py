@@ -16,7 +16,7 @@ conn = serial.Serial(device,baud,timeout=timeout)
 l = conn.write("get pos\n")
 print l
 ll = conn.readline()
-ll += conn.readline(timeout = 4)
+ll += conn.readline()
 #ll += conn.readline()
 print ll
 
