@@ -8,4 +8,9 @@ git clone https://github.com/sutt/robojune.git
 chmod +x sc1.py  #allows execution
 ./sc1.py         #executes
 
+./sc1.py M17     #turn on steppers
+./sc1.py M18     #turn off steppers
+
+MotorX carries the platform
+MotorY only drives the sliding beam
 
