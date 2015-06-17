@@ -14,3 +14,10 @@ chmod +x sc1.py  #allows execution
 MotorX carries the platform
 MotorY only drives the sliding beam
 
+#create .bashrc in home directory, put in it
+alias gitup='git add .;git commit -m 'gitup';git push upstream master;'
+$> source .bashrc
+
+cp pi-bashrc ~/.bashrc
+ls -a           #view hidden files
+
