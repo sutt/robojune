@@ -24,8 +24,8 @@ print l
 def sendc(cmd):
   global conn
   conn.write(cmd + "\n")
-  #l =  conn.readlines()
-  #print l
+  l =  conn.readlines()
+  print l
   return 0
 
 def readc(conn, timeout):
