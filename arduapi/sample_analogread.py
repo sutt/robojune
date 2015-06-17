@@ -1,7 +1,7 @@
 from arduino import Arduino
 import time
 
-b = Arduino('/dev/ttyUSB0')
+b = Arduino('/dev/ttyACM0')
 pin = 1
 
 b.output([])
