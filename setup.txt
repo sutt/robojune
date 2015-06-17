@@ -21,3 +21,13 @@ $> source .bashrc
 cp pi-bashrc ~/.bashrc
 ls -a           #view hidden files
 
+threading python and arduino
+https://github.com/gregpinero/ArduinoPlot/blob/master/Arduino_Monitor.py
+
+python arduino api
+https://github.com/vascop/Python-Arduino-Proto-API-v2
+
+override readline method to add timeout
+http://pvbookmarks.readthedocs.org/en/latest/devel/communication/serial/python/examples/pyserial/
+
+

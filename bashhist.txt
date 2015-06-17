@@ -1,0 +1,452 @@
+login as: pi
+pi@192.168.43.243's password:
+Linux raspberrypi 3.18.9+ #767 PREEMPT Sat Mar 7 21:41:13 GMT 2015 armv6l
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Tue Jun 16 22:25:35 2015 from sut-pc
+pi@raspberrypi ~ $ ls
+Desktop                   distribute_setup.py  get-pip.py  python_games
+distribute-0.6.49.tar.gz  Documents            ocr_pi.png  Scratch
+pi@raspberrypi ~ $ cd Desktop/robojune
+pi@raspberrypi ~/Desktop/robojune $ ls
+sc1.py  setup.txt
+pi@raspberrypi ~/Desktop/robojune $ git status
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#
+nothing to commit (working directory clean)
+pi@raspberrypi ~/Desktop/robojune $ chmod +x sc1.py
+pi@raspberrypi ~/Desktop/robojune $ git status
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#       modified:   sc1.py
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+pi@raspberrypi ~/Desktop/robojune $ ls
+sc1.py  setup.txt
+pi@raspberrypi ~/Desktop/robojune $ sc1.py
+-bash: sc1.py: command not found
+pi@raspberrypi ~/Desktop/robojune $ ./sc1.py
+8
+^[[B
+^CTraceback (most recent call last):
+  File "./sc1.py", line 14, in <module>
+    ll += conn.readline()
+  File "/usr/local/lib/python2.7/dist-packages/serial/serialposix.py", line 461, in read
+    ready,_,_ = select.select([self.fd],[],[], self._timeout)
+KeyboardInterrupt
+pi@raspberrypi ~/Desktop/robojune $
+pi@raspberrypi ~/Desktop/robojune $ git status
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#       modified:   sc1.py
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+pi@raspberrypi ~/Desktop/robojune $ git add .
+pi@raspberrypi ~/Desktop/robojune $ git commit -m 'chmod the sc1 script'
+[master 19dfc81] chmod the sc1 script
+ 0 files changed
+ mode change 100644 => 100755 sc1.py
+pi@raspberrypi ~/Desktop/robojune $ git status
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+nothing to commit (working directory clean)
+pi@raspberrypi ~/Desktop/robojune $ git push origin master
+Username for 'https://github.com': ll
+Password for 'https://ll@github.com':
+fatal: Authentication failed
+pi@raspberrypi ~/Desktop/robojune $ ./ sc1.py
+-bash: ./: Is a directory
+pi@raspberrypi ~/Desktop/robojune $ ./sc1.py
+8
+Smoothie
+ok
+Position X: 0.000000, Y: 0.000000, Z: 0.000000
+
+
+^CTraceback (most recent call last):
+  File "./sc1.py", line 25, in <module>
+    sendc( " ".join(sys.argv[1:]) )
+  File "./sc1.py", line 21, in sendc
+    l =  conn.readlines()
+  File "/usr/local/lib/python2.7/dist-packages/serial/serialposix.py", line 461, in read
+    ready,_,_ = select.select([self.fd],[],[], self._timeout)
+KeyboardInterrupt
+pi@raspberrypi ~/Desktop/robojune $
+pi@raspberrypi ~/Desktop/robojune $
+pi@raspberrypi ~/Desktop/robojune $ ./sc1.py M17
+8
+Smoothie
+ok
+Position X: 0.000000, Y: 0.000000, Z: 0.000000
+
+^[[A
+^CTraceback (most recent call last):
+  File "./sc1.py", line 25, in <module>
+    sendc( " ".join(sys.argv[1:]) )
+  File "./sc1.py", line 21, in sendc
+    l =  conn.readlines()
+  File "/usr/local/lib/python2.7/dist-packages/serial/serialposix.py", line 461, in read
+    ready,_,_ = select.select([self.fd],[],[], self._timeout)
+KeyboardInterrupt
+pi@raspberrypi ~/Desktop/robojune $
+pi@raspberrypi ~/Desktop/robojune $ ./sc1.py G1 X10
+8
+Smoothie
+ok
+Position X: 0.000000, Y: 0.000000, Z: 0.000000
+
+^CTraceback (most recent call last):
+  File "./sc1.py", line 25, in <module>
+    sendc( " ".join(sys.argv[1:]) )
+  File "./sc1.py", line 21, in sendc
+    l =  conn.readlines()
+  File "/usr/local/lib/python2.7/dist-packages/serial/serialposix.py", line 461, in read
+    ready,_,_ = select.select([self.fd],[],[], self._timeout)
+KeyboardInterrupt
+pi@raspberrypi ~/Desktop/robojune $ ./sc1.py G1 Z10
+8
+Smoothie
+ok
+Position X: 10.000000, Y: 0.000000, Z: 0.000000
+
+^[[A^CTraceback (most recent call last):
+  File "./sc1.py", line 25, in <module>
+    sendc( " ".join(sys.argv[1:]) )
+  File "./sc1.py", line 21, in sendc
+    l =  conn.readlines()
+  File "/usr/local/lib/python2.7/dist-packages/serial/serialposix.py", line 461, in read
+    ready,_,_ = select.select([self.fd],[],[], self._timeout)
+KeyboardInterrupt
+pi@raspberrypi ~/Desktop/robojune $ git pull origin master
+remote: Counting objects: 7, done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 7 (delta 3), reused 6 (delta 2), pack-reused 0
+Unpacking objects: 100% (7/7), done.
+From https://github.com/sutt/robojune
+ * branch            master     -> FETCH_HEAD
+Auto-merging sc1.py
+Merge made by the 'recursive' strategy.
+ sc1.py    |   14 +++++++++++---
+ setup.txt |    3 +++
+ 2 files changed, 14 insertions(+), 3 deletions(-)
+pi@raspberrypi ~/Desktop/robojune $ ls
+sc1.py  setup.txt
+pi@raspberrypi ~/Desktop/robojune $ echo sc1.py
+sc1.py
+pi@raspberrypi ~/Desktop/robojune $ ./sc1.py
+8
+Traceback (most recent call last):
+  File "./sc1.py", line 19, in <module>
+    ll += conn.readline(timeout = 4)
+TypeError: readline() takes no keyword arguments
+pi@raspberrypi ~/Desktop/robojune $ git pull origin master
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 3 (delta 1), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/sutt/robojune
+ * branch            master     -> FETCH_HEAD
+Auto-merging sc1.py
+Merge made by the 'recursive' strategy.
+ sc1.py |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+pi@raspberrypi ~/Desktop/robojune $ ./sc1.py
+8
+Position X: 10.000000, Y: 0.000000, Z: 10.000000
+
+[]
+pi@raspberrypi ~/Desktop/robojune $ ./sc1.py get pos
+Traceback (most recent call last):
+  File "./sc1.py", line 15, in <module>
+    conn = serial.Serial(device,baud,timeout=timeout)
+  File "/usr/local/lib/python2.7/dist-packages/serial/serialutil.py", line 274, in __init__
+    self.timeout  = timeout
+  File "/usr/local/lib/python2.7/dist-packages/serial/serialutil.py", line 399, in setTimeout
+    raise ValueError("Not a valid timeout: %r" % (timeout,))
+ValueError: Not a valid timeout: 'get'
+pi@raspberrypi ~/Desktop/robojune $ git pull origin master
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 3 (delta 1), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/sutt/robojune
+ * branch            master     -> FETCH_HEAD
+Auto-merging sc1.py
+Merge made by the 'recursive' strategy.
+ sc1.py |    9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+pi@raspberrypi ~/Desktop/robojune $ ls
+sc1.py  setup.txt
+pi@raspberrypi ~/Desktop/robojune $ ./sc1.py get pos
+8
+Position X: 10.000000, Y: 0.000000, Z: 10.000000
+
+['Position X: 10.000000, Y: 0.000000, Z: 10.000000\r\n']
+pi@raspberrypi ~/Desktop/robojune $ ./sc1.py G1 X20
+8
+Position X: 10.000000, Y: 0.000000, Z: 10.000000
+
+['ok\r\n']
+pi@raspberrypi ~/Desktop/robojune $ ./sc1.py get pos
+8
+Smoothie
+ok
+
+['Position X: 20.000000, Y: 0.000000, Z: 10.000000\r\n', 'Position X: 20.000000, Y: 0.000000, Z: 10.000000\r\n']
+pi@raspberrypi ~/Desktop/robojune $ ./sc1.py G1 Z0
+8
+Smoothie
+ok
+
+['Position X: 20.000000, Y: 0.000000, Z: 10.000000\r\n', 'ok\r\n']
+pi@raspberrypi ~/Desktop/robojune $ ./sc1.py G1 Y5
+8
+Smoothie
+ok
+
+['Position X: 20.000000, Y: 0.000000, Z: 0.000000\r\n', 'ok\r\n']
+pi@raspberrypi ~/Desktop/robojune $ ./sc1.py M18
+8
+Smoothie
+ok
+
+['Position X: 20.000000, Y: 5.000000, Z: 0.000000\r\n', 'ok\r\n']
+pi@raspberrypi ~/Desktop/robojune $ ./sc1.py M17
+8
+Smoothie
+ok
+
+['Position X: 20.000000, Y: 5.000000, Z: 0.000000\r\n', 'ok\r\n']
+pi@raspberrypi ~/Desktop/robojune $ ./sc1.py get pos
+8
+Smoothie
+ok
+
+
+['Position X: 20.000000, Y: 5.000000, Z: 0.000000\r\n', 'Position X: 20.000000, Y: 5.000000, Z: 0.000000\r\n']
+pi@raspberrypi ~/Desktop/robojune $
+pi@raspberrypi ~/Desktop/robojune $ ./sc1.py G1 X15
+8
+Smoothie
+ok
+
+['Position X: 20.000000, Y: 5.000000, Z: 0.000000\r\n', 'ok\r\n']
+pi@raspberrypi ~/Desktop/robojune $ ./sc1.py G1 X20
+8
+Smoothie
+ok
+
+^[[A['Position X: 15.000000, Y: 5.000000, Z: 0.000000\r\n', 'ok\r\n']
+pi@raspberrypi ~/Desktop/robojune $ ./sc1.py G1 X10
+8
+Smoothie
+ok
+
+['Position X: 20.000000, Y: 5.000000, Z: 0.000000\r\n', 'ok\r\n']
+pi@raspberrypi ~/Desktop/robojune $ ./sc1.py G0 X0
+8
+Smoothie
+ok
+
+['Position X: 10.000000, Y: 5.000000, Z: 0.000000\r\n', 'ok\r\n']
+pi@raspberrypi ~/Desktop/robojune $ git pull origin master
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 3 (delta 1), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/sutt/robojune
+ * branch            master     -> FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ setup.txt |    5 +++++
+ 1 file changed, 5 insertions(+)
+pi@raspberrypi ~/Desktop/robojune $ cd ~
+pi@raspberrypi ~ $ ls
+Desktop                   distribute_setup.py  get-pip.py  python_games
+distribute-0.6.49.tar.gz  Documents            ocr_pi.png  Scratch
+pi@raspberrypi ~ $ vim .bashrc
+-bash: vim: command not found
+pi@raspberrypi ~ $ touch .bashrc
+pi@raspberrypi ~ $ vim .bashrc
+-bash: vim: command not found
+pi@raspberrypi ~ $ cd Desktop/robojune
+pi@raspberrypi ~/Desktop/robojune $ git pull origin master
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/sutt/robojune
+ * branch            master     -> FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ pi-bashrc |    1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 pi-bashrc
+pi@raspberrypi ~/Desktop/robojune $ ls
+pi-bashrc  sc1.py  setup.txt
+pi@raspberrypi ~/Desktop/robojune $ cp pi-bashrc ~/.bashrc
+pi@raspberrypi ~/Desktop/robojune $ ls
+pi-bashrc  sc1.py  setup.txt
+pi@raspberrypi ~/Desktop/robojune $ cd ~
+pi@raspberrypi ~ $ ls
+Desktop                   distribute_setup.py  get-pip.py  python_games
+distribute-0.6.49.tar.gz  Documents            ocr_pi.png  Scratch
+pi@raspberrypi ~ $ ls -a
+.              .dillo                    .gstreamer-0.10  .scratch
+..             distribute-0.6.49.tar.gz  .gvfs            Scratch
+.bash_history  distribute_setup.py       .idlerc          .ssh
+.bash_logout   Documents                 .local           .thumbnails
+.bashrc        .fltk                     .netsurf         .Xauthority
+.cache         .fontconfig               ocr_pi.png       .xsession-errors
+.config        .gconf                    .pip
+.dbus          get-pip.py                .profile
+Desktop        .gitconfig                python_games
+pi@raspberrypi ~ $ gitup
+-bash: gitup: command not found
+pi@raspberrypi ~ $ source .bashrc
+pi@raspberrypi ~ $ gitup
+fatal: Not a git repository (or any of the parent directories): .git
+fatal: Not a git repository (or any of the parent directories): .git
+fatal: Not a git repository (or any of the parent directories): .git
+pi@raspberrypi ~ $ vim
+-bash: vim: command not found
+pi@raspberrypi ~ $ cd Desktop/robojune
+pi@raspberrypi ~/Desktop/robojune $ ls
+pi-bashrc  sc1.py  setup.txt
+pi@raspberrypi ~/Desktop/robojune $ git pull origin master
+remote: Counting objects: 9, done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 9 (delta 3), reused 9 (delta 3), pack-reused 0
+Unpacking objects: 100% (9/9), done.
+From https://github.com/sutt/robojune
+ * branch            master     -> FETCH_HEAD
+Auto-merging sc1.py
+Merge made by the 'recursive' strategy.
+ pi-bashrc |    3 ++-
+ sc1.py    |   10 +++++-----
+ setup.txt |    7 +++++++
+ 3 files changed, 14 insertions(+), 6 deletions(-)
+pi@raspberrypi ~/Desktop/robojune $ cp pi-bashrc ~/.bashrc
+pi@raspberrypi ~/Desktop/robojune $ cd ~
+pi@raspberrypi ~ $ source .bashrc
+pi@raspberrypi ~ $ cd Desktop/robojune
+pi@raspberrypi ~/Desktop/robojune $ ls
+pi-bashrc  sc1.py  setup.txt
+pi@raspberrypi ~/Desktop/robojune $ gitdown
+# On branch master
+# Your branch is ahead of 'origin/master' by 17 commits.
+#
+nothing to commit (working directory clean)
+From https://github.com/sutt/robojune
+ * branch            master     -> FETCH_HEAD
+Already up-to-date.
+pi@raspberrypi ~/Desktop/robojune $ git status
+# On branch master
+# Your branch is ahead of 'origin/master' by 17 commits.
+#
+nothing to commit (working directory clean)
+pi@raspberrypi ~/Desktop/robojune $ .sc1.py
+-bash: .sc1.py: command not found
+pi@raspberrypi ~/Desktop/robojune $ ./sc1.py
+8
+pi@raspberrypi ~/Desktop/robojune $ ./sc1.py get pos
+8
+pi@raspberrypi ~/Desktop/robojune $ gitdown
+# On branch master
+# Your branch is ahead of 'origin/master' by 17 commits.
+#
+nothing to commit (working directory clean)
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 3 (delta 1), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/sutt/robojune
+ * branch            master     -> FETCH_HEAD
+Auto-merging sc1.py
+Merge made by the 'recursive' strategy.
+ sc1.py |    4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+pi@raspberrypi ~/Desktop/robojune $ gitup
+# On branch master
+# Your branch is ahead of 'origin/master' by 19 commits.
+#
+nothing to commit (working directory clean)
+Username for 'https://github.com': sutt
+Password for 'https://sutt@github.com':
+Counting objects: 24, done.
+Compressing objects: 100% (16/16), done.
+Writing objects: 100% (16/16), 2.15 KiB, done.
+Total 16 (delta 3), reused 0 (delta 0)
+To https://github.com/sutt/robojune.git
+   12cd1a4..6e537c7  master -> master
+pi@raspberrypi ~/Desktop/robojune $ git status
+# On branch master
+nothing to commit (working directory clean)
+pi@raspberrypi ~/Desktop/robojune $ ./sc1.py
+8
+['Smoothie\n', 'ok\n', 'Position X: 0.000000, Y: 5.000000, Z: 0.000000\r\n', 'Smoothie\n', 'ok\n', 'Position X: 0.000000, Y: 5.000000, Z: 0.000000\r\n']
+pi@raspberrypi ~/Desktop/robojune $ ./sc1.py get pos
+8
+['Smoothie\n', 'ok\n', 'Position X: 0.000000, Y: 5.000000, Z: 0.000000\r\n', 'Position X: 0.000000, Y: 5.000000, Z: 0.000000\r\n']
+pi@raspberrypi ~/Desktop/robojune $ gitdown
+# On branch master
+nothing to commit (working directory clean)
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 3 (delta 1), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/sutt/robojune
+ * branch            master     -> FETCH_HEAD
+Updating 6e537c7..1c58e0b
+Fast-forward
+ sc1.py |    6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+pi@raspberrypi ~/Desktop/robojune $ ./sc1.py
+8
+Traceback (most recent call last):
+  File "./sc1.py", line 19, in <module>
+    ll = l.readlines()
+AttributeError: 'int' object has no attribute 'readlines'
+pi@raspberrypi ~/Desktop/robojune $ gitdown
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#
+nothing to commit (working directory clean)
+^[[Aremote: Counting objects: 3, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 3 (delta 1), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/sutt/robojune
+ * branch            master     -> FETCH_HEAD
+Updating 1c58e0b..2df35bc
+Fast-forward
+ sc1.py |    3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+pi@raspberrypi ~/Desktop/robojune $ ./sc1.py
+8
+['Smoothie\n', 'ok\n', 'Position X: 0.000000, Y: 5.000000, Z: 0.000000\r\n', 'Smoothie\n', 'ok\n', 'Position X: 0.000000, Y: 5.000000, Z: 0.000000\r\n']
+done with sendc
+pi@raspberrypi ~/Desktop/robojune $ ./sc1.py G0 Y20
+8
+['Smoothie\n', 'ok\n', 'Position X: 0.000000, Y: 5.000000, Z: 0.000000\r\n']
+done with sendc
+pi@raspberrypi ~/Desktop/robojune $ sudo shutdown -h now
+
+Broadcast message from root@raspberrypi (pts/0) (Wed Jun 17 00:24:58 2015):
+The system is going down for system halt NOW!
+pi@raspberrypi ~/Desktop/robojune $
