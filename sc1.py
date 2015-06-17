@@ -16,7 +16,7 @@ timeout = 10
 conn = serial.Serial(device,baud,timeout=timeout)
 l = conn.write("get pos\n")
 print l
-ll = l.readlines()
+ll = conn.readlines()
 print ll
 #ll = conn.readline()
 #ll += conn.readline()
@@ -28,6 +28,7 @@ def sendc(cmd):
   conn.write(cmd + "\n")
   #l =  conn.readlines()
   #print l
+  print "done with sendc"
   return 0
 
 def readc(conn, timeout):
