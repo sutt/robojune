@@ -1,0 +1,115 @@
+    1  cd desktop/wnba
+    2  git status
+    3  git reset --help
+    4  git log
+    5  netsh wlan
+    6  wget "google.com"
+    7  curl google.com
+    8  curl www.google.com
+    9  netsh
+   10  which python
+   11  which java
+   12  which jdk
+   13  which jre
+   14  which chrome
+   15  which ie
+   16  which excel
+   17  which ssh
+   18  ssh
+   19  exit
+   20  cd desktop/robojune
+   21  ls
+   22  git status
+   23  git add .
+   24  gitup
+   25  mkdir arduapi
+   26  cd arduapi
+   27  git pull https://github.com/vascop/Python-Arduino-Proto-API-v2.git
+   28  git remote
+   29  gitup
+   30  cd ..
+   31  gitup
+   32  ls
+   33  cd arduapi
+   34  ls
+   35  cd ..
+   36  git reset --hard HEAD~1
+   37  ls
+   38  gitup
+   39  git checkout master
+   40  ls
+   41  git status
+   42  git push upstream -f
+   43  ls
+   44  git status
+   45  git pull upstream master
+   46  ls
+   47  git add adruapi
+   48  touch adruapi/__init__.py
+   49  ls
+   50  cd arduapi
+   51  touch __init__.py
+   52  ls
+   53  cd ..
+   54  ls
+   55  git branch -b addarduapi
+   56  git checkout -b adruapi
+   57  git branch
+   58  cd arduapi
+   59  git pull https://github.com/vascop/Python-Arduino-Proto-API-v2.git
+   60  ls
+   61  git checkout master
+   62  ls
+   63  cd ..
+   64  ls
+   65  git checkout addarduapi
+   66  git branch
+   67  git checkout adruapi
+   68  ls
+   69  git checkout -b addagain
+   70  ls
+   71  git checkout master
+   72  ls
+   73  git checkout -b add3
+   74  git merge arduapi
+   75  git status
+   76  gitup
+   77  git fetch upstream
+   78  ls
+   79  git fetch upstream master
+   80  ls
+   81  cd arduapi
+   82  ls
+   83  git status
+   84  git checkout master
+   85  ls
+   86  git reset HEAD
+   87  ls
+   88  cd ..
+   89  ls
+   90  git pull upstream master
+   91  ls
+   92  git status
+   93  gitup
+   94  ls
+   95  cd ..
+   96  mkdir arduapi
+   97  cd arduapi
+   98  git clone https://github.com/vascop/Python-Arduino-Proto-API-v2.git
+   99  ls
+  100  cp -r Python-Arduino-Proto-API-v2/* ../robojune/arduapi
+  101  cd ..
+  102  cd robojune
+  103  ls
+  104  cd arduapi
+  105  ls
+  106  cd ..
+  107  git status
+  108  git add arduapi/
+  109  git status
+  110  git commit -m 'adding arduino v2 api'
+  111  git push upstream master
+  112  ls
+  113  ls
+  114  history
+  115  history > myhist.txt

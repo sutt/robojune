@@ -28,9 +28,14 @@ cp -r repo/* ../newdir    #copy all files and folders
 git reset --hard HEAD~1    #local by one commit
 
 baudrate = 115200     # for pi or 9600 supported by windows
+#in both arduino class, and .pde
+Arduino('/dev/ttyACM0')
 
 pi$>python sample_analogread.py  
 #prints for VCC connected to analog 1 pin
+
+client for smoothie control
+http://smoothieware.org/pronterface
 
 threading python and arduino
 https://github.com/gregpinero/ArduinoPlot/blob/master/Arduino_Monitor.py
@@ -41,4 +46,10 @@ https://github.com/vascop/Python-Arduino-Proto-API-v2
 override readline method to add timeout
 http://pvbookmarks.readthedocs.org/en/latest/devel/communication/serial/python/examples/pyserial/
 
+
+7.14
+
+Brenton Strong - Money (that's what I want)
+
+Save&Quit in vi in putty: cntrl-c, then ":wq"
 

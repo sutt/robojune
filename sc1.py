@@ -11,7 +11,7 @@ baud = 115200
 #    timeout = int(sys.argv[1])
 #else:
 #    timeout = 10
-timeout = 10
+timeout = 3
 
 conn = serial.Serial(device,baud,timeout=timeout)
 l = conn.write("get pos\n")
