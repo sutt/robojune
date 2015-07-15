@@ -34,7 +34,7 @@ def monitor():
     return True
 
 print "-------------------------------"
-print calibrate()
+print calibrate(A)
 
     
  
