@@ -27,7 +27,7 @@ def calibrate(ardu, **kwargs):
     print sd
     return int(sd*sigma)
 
-def monitor()
+def monitor():
     #float(time_sleep)
     #t_interval = float(1) / float(pollhz)       
     #time.sleep(t_interval)
