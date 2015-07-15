@@ -24,7 +24,7 @@ def calibrate(ardu, **kwargs):
         time.sleep(t_interval)
     print m
     sd = map(lambda x: (x - sum(m))^2, m)
-    sd = math.sqrt( float(sd) / float(cal_steps) )
+    sd = math.sqrt( float(sum(sd)) / float(cal_steps) )
     print "-------------------------------"
     print sd
     return int(sd*sigma)
