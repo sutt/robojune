@@ -19,7 +19,7 @@ def calibrate(ardu, **kwargs):
     m = []
     for i in range(cal_steps):
         d = poll_ardu(ardu,1)
-        m.append(d)
+        m.append(int(d))
         print d
         time.sleep(t_interval)
     print m
