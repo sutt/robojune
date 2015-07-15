@@ -13,7 +13,7 @@ def poll_ardu(ardu,pin):
     
 def calibrate(ardu, **kwargs):
     cal_time = kwargs.get('cal_period',3)
-    t_interval = kwargs.get('t_interval',.1)
+    t_interval = kwargs.get('t_interval',.5)
     kwargs = kwargs.get('sigma',3)
     cal_steps = int( float(cal_time) / float(t_interval))
     m = []
