@@ -18,7 +18,7 @@ def calibrate(ardu, **kwargs):
     cal_steps = int( float(cal_time) / float(t_interval))
     m = []
     for i in range(cal_steps):
-        d = poll_the_ardu(ardu,1)
+        d = poll_ardu(ardu,1)
         m.append(d)
         time.sleep(t_interval)
     sd = map(lambda x: (x - sum(m))^2, m)
