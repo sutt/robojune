@@ -16,6 +16,7 @@ def calibrate(ardu, **kwargs):
     t_interval = kwargs.get('t_interval',.5)
     kwargs = kwargs.get('sigma',3)
     cal_steps = int( float(cal_time) / float(t_interval))
+    print cal_steps
     m = []
     for i in range(cal_steps):
         d = poll_ardu(ardu,1)
