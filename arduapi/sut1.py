@@ -6,9 +6,9 @@ p = optparse.OptionParser()
 #p.add_option(
 
 A = Arduino('/dev/ttyACM0')
+A.output([])
 
-def poll_ardu(ardu,pin):
-    ardu.output([])
+def poll_ardu(ardu,pin):    
     return ardu.analogRead(pin)
     
 def calibrate(ardu, **kwargs):
