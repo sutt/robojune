@@ -66,8 +66,15 @@ d.h264
 
 8.9
 
+#To exit git diff type: ":q Enter" or "Shift + Q"
 
+Adrain @PyImageSearch Tut's
+    
+    Old OpenCV 2.4    http://www.pyimagesearch.com/2015/02/23/install-opencv-and-python-on-your-raspberry-pi-2-and-b/
 
+    New Tut for 3.0 http://www.pyimagesearch.com/2015/07/27/installing-opencv-3-0-for-both-python-2-7-and-python-3-on-your-raspberry-pi-2/
+
+    How to interface from opencv to picamera http://www.pyimagesearch.com/2015/03/30/accessing-the-raspberry-pi-camera-with-opencv-and-python/
 
 
 
