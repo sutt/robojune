@@ -53,3 +53,21 @@ Brenton Strong - Money (that's what I want)
 
 Save&Quit in vi in putty: cntrl-c, then ":wq"
 
+View Connected USB devices: lssub
+
+List IPs on LAN (windows): arp -a
+
+7.19
+
+# this copies from pi -> laptop; 
+# reverse arg order for laptop -> pi
+pscp pi@192.168.43.243:Desktop/camera1/vid1.h264 myvi
+d.h264
+
+8.9
+
+
+
+
+
+

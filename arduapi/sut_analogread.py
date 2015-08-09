@@ -1,5 +1,7 @@
 from arduino import Arduino
-import time
+import time, sys, os
+
+sys.argv
 
 b = Arduino('/dev/ttyACM0')
 pin = 1

@@ -1,6 +1,5 @@
-import sys, optparse, time, math
+import sys, os, optparse, time, math
 from arduino import Arduino
-import time, sys, os
 
 p = optparse.OptionParser()
 #p.add_option(
@@ -10,27 +9,27 @@ A.output([])
 
 def poll_ardu(ardu,pin):    
     return ardu.analogRead(pin)
-    
+
+def sd(obs):
+    """returns sd [float] from obs [list] """
+    n = len(obs)
+    mean = float(sum(obs)) /  float(n)
+    sd = map(lambda x: (x - mean)**2, m)
+    retlsurn float(math.sqrt( float(sum(sd)) / float(n) ))
+
 def calibrate(ardu, **kwargs):
+    """returns tolerance [int] from Ardu sample """
     cal_time = kwargs.get('cal_period',3)
     t_interval = kwargs.get('t_interval',.5)
     kwargs = kwargs.get('sigma',3)
     cal_steps = int( float(cal_time) / float(t_interval))
-    print cal_steps
+    
     m = []
     for i in range(cal_steps):
         d = poll_ardu(ardu,1)
         m.append(int(d))
-        print d
         time.sleep(t_interval)
-    print m
-    
-    sd = map(lambda x: (x - sum(m))^2, m)
-    print sd
-    print sum(sd)
-    sd = math.sqrt( float(sum(sd)) / float(cal_steps) )
-    print "-------------------------------"
-    print sd
+    sd = sd(m)
     return int(sd*sigma)
 
 def monitor():
@@ -40,7 +39,8 @@ def monitor():
     return True
 
 print "-------------------------------"
-print calibrate(A)
+cal = calibrate(A, cal_period = 5, t_interval = .2)
+print cal
 
     
  
