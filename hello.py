@@ -27,7 +27,7 @@ def takepic():
 	subprocess.call(["raspistill", "-o","newpic.jpg"])
 	return 'pic taken'
 
-@ap.route('/smoothie/')
+@app.route('/smoothie/')
 def smoothie():
 	conn = serial.Serial(device,baud,timeout=timeout)
 	l = conn.write("get pos\n")
@@ -38,6 +38,6 @@ def smoothie():
 	sendc("")
 	conn.close()
 	
-	
+	  
 if __name__== "__main__":
 	app.run(host='0.0.0.0')
