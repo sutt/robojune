@@ -3,22 +3,14 @@ from flask import Flask, send_file
 import serial
 import sys
 import time
+import RPi.GPIO as GPIO
 
 device = '/dev/ttyACM0'
 baud = 115200
 timeout = 3
+GPIO.setmode(GPIO.BOARD)
+ss = .05
 
-def sendc(cmd):
-  print "really in"
-  global conn
-  print cmd
-  print cmd[0]
-  conn.write(str(cmd) + "\n")
-  #l =  conn.readlines()
-  #print l
-  #out2 = conn.readlines()
-  print "done with sendc"
-  return out2
 
 def takepic(picid):
 	picid += ".jpg"
@@ -32,6 +24,26 @@ app = Flask(__name__)
 @app.route('/')
 def hello():
 	return 'Hello World!'
+
+@app.route('/rotate/')
+def rotate():
+	sleep,dir,step = 4,3,2
+	GPIO.setup(sleep, GPIO.OUT)
+	GPIO.setup(dir, GPIO.OUT)
+	GPIO.setup(step, GPIO.OUT)
+	
+	GPIO.output(sleep,False)
+	time.sleep(ss)
+	GPIO.output(sleep,True)
+	
+	
+	for i in range(100):
+		GPIO.output(step,True)
+		time.sleep(ss)
+		GPIO.output(step,True)
+		time.sleep(ss)
+	
+	return 'done'
 	
 @app.route('/takepic/')
 def reqtakepic():
