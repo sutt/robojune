@@ -9,11 +9,12 @@ baud = 115200
 timeout = 3
 
 def sendc(cmd):
+  print "really in"
   global conn
   conn.write(cmd + "\n")
   #l =  conn.readlines()
   #print l
-  out2 = conn.readlines()
+  #out2 = conn.readlines()
   print "done with sendc"
   return out2
 
@@ -30,13 +31,17 @@ def takepic():
 
 @app.route('/smoothie/<data>')
 def smoothie(data):
+	print "in"
 	conn = serial.Serial(device,baud,timeout=timeout)
+	print "sending")
+	c2 = sendc(str(data))
 	c = conn.write("get pos\n")
 	out1 = conn.readlines()
-	print ll
-	out2 = sendc(str(data))
+	#out2conn.readlines()
 	conn.close()
-	ret = [out1.join(" | ") ,out2.join(" | ")].join("\n")
+	print "down to ret"
+	#ret = [out1.join(" | ") ,out2.join(" | ")].join("\n")
+	ret = out1.join(" | ")
 	return ret 
 	  
 if __name__== "__main__":
