@@ -1,0 +1,80 @@
+from sut-pc/desktop/robojune/:
+
+curl -u 'sutt' https://api.github.com/user/repos -d  '{"name":"robojune"}'
+
+from ssh: pi/desktop/
+git clone https://github.com/sutt/robojune.git
+
+chmod +x sc1.py  #allows execution
+./sc1.py         #executes
+
+./sc1.py M17     #turn on steppers
+./sc1.py M18     #turn off steppers
+
+MotorX carries the platform
+MotorY only drives the sliding beam
+
+#create .bashrc in home directory, put in it
+alias gitup='git add .;git commit -m 'gitup';git push upstream master;'
+$> source .bashrc
+
+cp pi-bashrc ~/.bashrc
+ls -a           #view hidden files
+
+
+cp -r repo/* ../newdir    #copy all files and folders
+
+#git rollback
+git reset --hard HEAD~1    #local by one commit
+
+baudrate = 115200     # for pi or 9600 supported by windows
+#in both arduino class, and .pde
+Arduino('/dev/ttyACM0')
+
+pi$>python sample_analogread.py  
+#prints for VCC connected to analog 1 pin
+
+client for smoothie control
+http://smoothieware.org/pronterface
+
+threading python and arduino
+https://github.com/gregpinero/ArduinoPlot/blob/master/Arduino_Monitor.py
+
+python arduino api
+https://github.com/vascop/Python-Arduino-Proto-API-v2
+
+override readline method to add timeout
+http://pvbookmarks.readthedocs.org/en/latest/devel/communication/serial/python/examples/pyserial/
+
+
+7.14
+
+Brenton Strong - Money (that's what I want)
+
+Save&Quit in vi in putty: cntrl-c, then ":wq"
+
+View Connected USB devices: lssub
+
+List IPs on LAN (windows): arp -a
+
+7.19
+
+# this copies from pi -> laptop; 
+# reverse arg order for laptop -> pi
+pscp pi@192.168.43.243:Desktop/camera1/vid1.h264 myvi
+d.h264
+
+8.9
+
+#To exit git diff type: ":q Enter" or "Shift + Q"
+
+Adrain @PyImageSearch Tut's
+    
+    Old OpenCV 2.4    http://www.pyimagesearch.com/2015/02/23/install-opencv-and-python-on-your-raspberry-pi-2-and-b/
+
+    New Tut for 3.0 http://www.pyimagesearch.com/2015/07/27/installing-opencv-3-0-for-both-python-2-7-and-python-3-on-your-raspberry-pi-2/
+
+    How to interface from opencv to picamera http://www.pyimagesearch.com/2015/03/30/accessing-the-raspberry-pi-camera-with-opencv-and-python/
+
+
+

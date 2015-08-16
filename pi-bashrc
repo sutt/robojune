@@ -1,0 +1,2 @@
+alias gitup='git add .;git commit -m 'gitup';git push origin master;'
+alias gitdown='git status;git pull origin master'
