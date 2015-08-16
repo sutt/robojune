@@ -11,6 +11,7 @@ timeout = 3
 def sendc(cmd):
   print "really in"
   global conn
+  print cmd
   conn.write(cmd + "\n")
   #l =  conn.readlines()
   #print l
