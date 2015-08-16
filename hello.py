@@ -35,9 +35,12 @@ def smoothie():
 	ll = conn.readlines()
 	print ll
 	#" ".join(sys.argv[1:])
-	sendc("")
+	#sendc("")
 	conn.close()
-	
+
+
+
+        return ll[2]	
 	  
 if __name__== "__main__":
 	app.run(host='0.0.0.0')
