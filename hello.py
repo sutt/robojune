@@ -46,7 +46,7 @@ def smoothie(data):
 	print "down to ret"
 	#ret = [out1.join(" | ") ,out2.join(" | ")].join("\n")
 	print out1
-	ret = out1.join(" | ")
+	ret = " | ".join(out1)
 	return ret 
 	  
 if __name__== "__main__":
