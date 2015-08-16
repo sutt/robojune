@@ -27,7 +27,7 @@ def hello():
 
 @app.route('/rotate/')
 def rotate():
-	sleep,dir,step = 4,3,2
+	sleep,dir,step = 7,5,3
 	GPIO.setup(sleep, GPIO.OUT)
 	GPIO.setup(dir, GPIO.OUT)
 	GPIO.setup(step, GPIO.OUT)
