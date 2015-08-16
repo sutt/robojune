@@ -12,7 +12,8 @@ def sendc(cmd):
   print "really in"
   global conn
   print cmd
-  conn.write(cmd + "\n")
+  print cmd[0]
+  conn.write(str(cmd) + "\n")
   #l =  conn.readlines()
   #print l
   #out2 = conn.readlines()
