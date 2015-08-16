@@ -13,8 +13,9 @@ def sendc(cmd):
   conn.write(cmd + "\n")
   #l =  conn.readlines()
   #print l
+  out2 = conn.readlines()
   print "done with sendc"
-  return 0
+  return out2
 
 app = Flask(__name__)
 
@@ -27,20 +28,16 @@ def takepic():
 	subprocess.call(["raspistill", "-o","newpic.jpg"])
 	return 'pic taken'
 
-@app.route('/smoothie/')
-def smoothie():
+@app.route('/smoothie/<data>')
+def smoothie(data):
 	conn = serial.Serial(device,baud,timeout=timeout)
-	l = conn.write("get pos\n")
-	print l
-	ll = conn.readlines()
+	c = conn.write("get pos\n")
+	out1 = conn.readlines()
 	print ll
-	#" ".join(sys.argv[1:])
-	#sendc("")
+	out2 = sendc(str(data))
 	conn.close()
-
-
-
-        return ll[2]	
+	ret = [out1.join(" | ") ,out2.join(" | ")].join("\n")
+	return ret 
 	  
 if __name__== "__main__":
 	app.run(host='0.0.0.0')
