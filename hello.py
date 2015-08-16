@@ -33,7 +33,7 @@ def takepic():
 def smoothie(data):
 	print "in"
 	conn = serial.Serial(device,baud,timeout=timeout)
-	print "sending")
+	print "sending"
 	c2 = sendc(str(data))
 	c = conn.write("get pos\n")
 	out1 = conn.readlines()
