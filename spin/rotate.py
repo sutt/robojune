@@ -1,6 +1,8 @@
 import time
 import RPi.GPIO as GPIO
 
+GPIO.setmode(GPIO.BOARD)
+
 def rotate():
 	sleep,dir,step = 7,3,5
 	GPIO.setup(sleep, GPIO.OUT)
