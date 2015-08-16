@@ -1,5 +1,5 @@
 import os, subprocess, time
-from flask import Flask
+from flask import Flask, send_file
 import serial
 import sys
 import time
@@ -20,6 +20,13 @@ def sendc(cmd):
   print "done with sendc"
   return out2
 
+def takepic(picid):
+	picid += ".jpg"
+	subprocess.call(["raspistill", "-o", picid])
+	time.sleep(6)
+	return picid
+	
+  
 app = Flask(__name__)
 
 @app.route('/')
@@ -27,9 +34,12 @@ def hello():
 	return 'Hello World!'
 	
 @app.route('/takepic/')
-def takepic():
-	subprocess.call(["raspistill", "-o","newpic.jpg"])
-	return 'pic taken'
+def reqtakepic():
+	subprocess.call("ls")
+	picid = 'takeit'
+	fn = takepic(picid)
+	subprocess.call("ls")
+	return send_file(fn, mimetype='image/jpeg')
 
 @app.route('/smoothie/<data>')
 def smoothie(data):
