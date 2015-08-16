@@ -1,4 +1,4 @@
-import os, subprocess
+import os, subprocess, time
 from flask import Flask
 import serial
 import sys
@@ -36,10 +36,12 @@ def smoothie(data):
 	print "in"
 	conn = serial.Serial(device,baud,timeout=timeout)
 	print "sending"
-	c2 = sendc(str(data))
+	#c2 = sendc(str(data))
+	conn.write(str(data) + "\n")
+	time.sleep(2)
 	c = conn.write("get pos\n")
 	out1 = conn.readlines()
-	#out2conn.readlines()
+	print "before conn close"
 	conn.close()
 	print "down to ret"
 	#ret = [out1.join(" | ") ,out2.join(" | ")].join("\n")
