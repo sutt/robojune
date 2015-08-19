@@ -3,10 +3,12 @@ from flask import Flask, send_file
 import serial
 import sys
 import time
+from arduino import Arduino
 
-device = '/dev/ttyACM0'
-baud = 115200
-timeout = 3
+
+#device = '/dev/ttyACM0'
+#baud = 115200
+#timeout = 3
 
 from arduino import Arduino
 import time
@@ -39,3 +41,5 @@ def joystickon():
 	
 	return " | ".join(ret)
 	
+if __name__== "__main__":
+	app.run(host='0.0.0.0')
