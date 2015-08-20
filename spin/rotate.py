@@ -13,6 +13,7 @@ def rotate():
 	time.sleep(ss)
 	GPIO.output(sleep,GPIO.HIGH)
 	
+	GPIO.output(dir,GPIO.HIGH)
 	
 	for i in range(100):
 		GPIO.output(step,GPIO.LOW)
