@@ -1,0 +1,39 @@
+
+Showcase app: Watch three separate colonies develop in a browser client
+
+
+Microscope-side Batch Proc:
+
+	Logging: insert a record for each step in the Atomic Prcoess
+		(so you'll know what to log when you build the atomic proc)
+		
+		onError: raises exception to that sub-procs error handling retry loop, or calls upward to cancel/compensate the rest of the schedule
+	
+	The Atomic operation:
+	
+		Move to a position( CurrentPos, DesiredPos)
+			
+		Take a Picture( desiredName, desiredDirectory)
+		
+		Log the step, return required values
+	
+	Routine: an ordered set of atomic operation
+	
+		Init: Registration, calibration, etc..
+		Loop: Atomic Operations
+	
+	Routine Builder: builds an object that represents the routine to be run
+	
+		e.g. find the tiles
+		
+	*To easily update arbitrary code execution, we need git pull's
+	 to update the batch proc without restarting the app
+	 
+		flask routes url to function
+			function calls imported module
+				imported module ref's the update code
+				
+	Syncing Routine-objects with DB can create an elegant init/resume batch proc
+	
+	
+			
