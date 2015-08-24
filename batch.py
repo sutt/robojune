@@ -18,19 +18,21 @@ def getpos():
 	return 1
 
 def smoothie(cmd):
-		try:
-			conn = serial.Serial(devices[1],baud,timeout=timeout)
-			conn.write(str(cmd) + "\n")
-			time.sleep(2)
-			
-			c = conn.write("get pos\n")
-			out1 = conn.readlines()
-			print out1.append("\n")
-			conn.close()
-		except:
-			print 'not ', str(i)
-			
-	ret = " | ".join(out1)
+	ret = ""
+	try:
+		conn = serial.Serial(devices[1],baud,timeout=timeout)
+		conn.write(str(cmd) + "\n")
+		time.sleep(2)
+		
+		c = conn.write("get pos\n")
+		out1 = conn.readlines()
+		print out1.append("\n")
+		conn.close()
+		ret = " | ".join(out1)
+	except:
+		print 'not ', str(i)
+		
+	
 	return ret 
   
 app = Flask(__name__)
