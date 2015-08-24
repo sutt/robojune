@@ -46,7 +46,7 @@ def reqsmoothie():
 	return smoothie('')
 	
 @app.route('/smoothie/x/<data>')
-def reqsmoothie(data):
+def reqsmoothiex(data):
 	return smoothie("GO X"+str(data))
 	  
 if __name__== "__main__":
