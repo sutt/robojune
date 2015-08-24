@@ -13,7 +13,7 @@ baud = 115200
 timeout = 10
 
 def smoothie(cmd):
-	for in range(2):
+	for i in range(2):
 		print str(i)
 		try:
 			conn = serial.Serial(devices[i],baud,timeout=timeout)
