@@ -8,21 +8,26 @@ import myfunc
 
 ##GOAL: differentiate tty's and joystick turn on and read
 
-device = '/dev/ttyACM0'
+devices = ['/dev/ttyACM0','/dev/ttyACM1']
 baud = 115200
 timeout = 10
 
 def smoothie(cmd):
-	conn = serial.Serial(device,baud,timeout=timeout)
-	print "sending"
-	conn.write(str(data) + "\n")
-	time.sleep(2)
-	
-	c = conn.write("get pos\n")
-	out1 = conn.readlines()
-	print out1
-	conn.close()
-	
+	for in range(2):
+		print str(i)
+		try:
+			conn = serial.Serial(devices[i],baud,timeout=timeout)
+			
+			#conn.write(str(data) + "\n")
+			#time.sleep(2)
+			
+			c = conn.write("get pos\n")
+			out1 = conn.readlines()
+			print out1
+			conn.close()
+		except:
+			print 'not ', str(i)
+			
 	ret = " | ".join(out1)
 	return ret 
   
