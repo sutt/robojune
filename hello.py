@@ -1,6 +1,6 @@
 import os, subprocess, time
 from flask import Flask, send_file
-import serial
+#import serial
 import sys
 import time
 
@@ -28,6 +28,17 @@ def takepic(picid):
 	
   
 app = Flask(__name__)
+
+@app.route('/ten/')
+def ten():
+	print 'here'
+	time.sleep(10)
+	return 'Yo'
+
+@app.route('/one/')
+def one():
+	time.sleep(1)
+	return 'one'
 
 @app.route('/')
 def hello():
@@ -60,4 +71,4 @@ def smoothie(data):
 	return ret 
 	  
 if __name__== "__main__":
-	app.run(host='0.0.0.0')
+	app.run(host='0.0.0.0', threaded=True)
