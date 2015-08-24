@@ -1,18 +1,32 @@
 import os, sys, subprocess, time
 from flask import Flask, send_file
 
+myGlobal = False
+passIn = False
+
 app = Flask(__name__)
 
+
 @app.route('/ten/')
-def ten():
-	print 'here'
-	time.sleep(10)
-	return 'Yo'
+def ten(Flask.request()):
+	print 'u'
+	global myGlobal
+	out = 0
+	for i in range(10):
+		if myGlobal & passIn:
+			out = i
+			break
+			print passIn
+		time.sleep(1)
+	return str(out)
 
 @app.route('/one/')
-def one():
-	time.sleep(1)
-	return 'one'
+def one(passIn):
+	global myGlobal
+	myGlobal = True
+	passIn = True
+	return str(myGlobal)
+	
 
 @app.route('/')
 def hello():
