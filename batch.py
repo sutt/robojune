@@ -1,11 +1,11 @@
 import os, sys, subprocess, time
 from flask import Flask, send_file
-import serial
+#import serial
 
 sys.path.append(os.path.join(os.path.abspath('.'),"reqs", "imp"))
 import myfunc
 sys.path.append(os.path.join(os.path.abspath('.'),"arduapi", "arduino"))
-import Arduino
+import arduino
 
 ##GOAL: differentiate tty's and joystick turn on and read
 
@@ -13,7 +13,7 @@ devices = ['/dev/ttyACM0','/dev/ttyACM1']
 baud = 115200
 timeout = 10
 
-b = Arduino('/dev/ttyACM0')
+b = arduino.Arduino('/dev/ttyACM0')
 pin = 1
 
 def joystick(data):
