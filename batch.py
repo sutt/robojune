@@ -69,7 +69,7 @@ def reqsmoothie():
 def reqsmoothiex(data):
 	return smoothie("GO X"+str(data))
 
-@app.route('joystickon')
+@app.route('/joystickon/')
 def joystickon():	
 	return joystick([])
 
