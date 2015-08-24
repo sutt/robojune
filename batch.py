@@ -33,7 +33,8 @@ def hello():
 	return 'Hello World!'
 
 @app.route('/smoothie/')
-smoothie('GO X1')
+def reqsmoothie():
+	return smoothie('GO X1')
 	  
 if __name__== "__main__":
 	app.run(host='0.0.0.0', threaded=True)
