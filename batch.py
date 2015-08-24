@@ -1,6 +1,6 @@
 import os, sys, subprocess, time
 from flask import Flask, send_file
-#import serial
+import serial
 
 sys.path.append(os.path.join(os.path.abspath('.'),"reqs", "imp"))
 import myfunc
