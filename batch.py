@@ -16,7 +16,14 @@ import arduino
 	#Failed to run once, could only be interrupt 1/2 times
 	#9:51 - add the correct way to call b, 
 	
-	#then, try turning off threading
+	#this script could be interrupted by holding cntrl c without stop with five second delay for each operation that fails
+	
+	#error reports return from threading module, let
+
+thread_bool = False
+if len(sys.argv) > 1
+	thread_bool = True
+	
 	
 devices = ['/dev/ttyACM0','/dev/ttyACM1']
 baud = 115200
@@ -89,4 +96,4 @@ def joystickon():
 	return out
 
 if __name__== "__main__":
-	app.run(host='0.0.0.0', threaded=True)
+	app.run(host='0.0.0.0', threaded=thread_bool)
