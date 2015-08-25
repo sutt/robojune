@@ -19,6 +19,8 @@ import arduino
 	#this script could be interrupted by holding cntrl c without stop with five second delay for each operation that fails
 	
 	#error reports return from threading module, let
+	
+	#10:07: removing threading didnt work, now just write the code correctly...
 
 thread_bool = False
 if len(sys.argv) > 1:
@@ -32,17 +34,21 @@ timeout = 10
 b = arduino.Arduino('/dev/ttyACM0')
 pin = 1
 
-def joystick(data):
+def pollj():
 	ret = []
-	#b.output([])
-	for i in range(20):
+	pin = 1	
+	try:
+		b = arduino.Arduino('/dev/ttyACM0')
+		b.output([])
+	except:
+		print 'couldnt create b'
+
+	for i in range(10):
 		val = None
 		try:
 			val = b.analogRead(pin)
-			print val
 		except:
-			print 'couldnt analogread'
-			
+			print 'couldnt analogread ' + str(i)
 		ret.append(val)
 		print val
 		time.sleep(0.5)
@@ -86,7 +92,7 @@ def reqsmoothiex(data):
 @app.route('/joystickon/')
 def joystickon():	
 	try:
-		out = joystick([])
+		out = pollj()
 	except KeyboardInterrupt:
 		print 'Interception!'
 		try:
