@@ -1,5 +1,6 @@
 import os, sys, subprocess, time
 from flask import Flask, send_file
+
 import serial
 
 sys.path.append(os.path.join(os.path.abspath('.'),"reqs", "imp"))
@@ -10,6 +11,8 @@ import arduino
 ##GOAL - handle flask errors, turn joystick on!
 	#can wait for a keyboard interupt, with an try/except wrapper
 
+	#9:42 - added keyboard interup exception in req handling func wrapping the ardu poll loop. but creating the b object is still done on ini, so we expect this server to fail on 2nd request but to fail elegantly
+	
 devices = ['/dev/ttyACM0','/dev/ttyACM1']
 baud = 115200
 timeout = 10
@@ -20,21 +23,17 @@ pin = 1
 def joystick(data):
 	ret = []
 	#b.output([])
-
 	for i in range(20):
+		val = None
 		try:
-			val = None
-			try:
-				val = b.analogRead(pin)
-				print val
-			except:
-				print 'couldnt analogread'
-				
-			ret.append(val)
+			val = b.analogRead(pin)
 			print val
-			time.sleep(0.5)
 		except:
-			print str(i)
+			print 'couldnt analogread'
+			
+		ret.append(val)
+		print val
+		time.sleep(0.5)
 	return " | ".join(ret)
 
 def getpos():
@@ -74,7 +73,15 @@ def reqsmoothiex(data):
 
 @app.route('/joystickon/')
 def joystickon():	
-	return joystick([])
+	try:
+		out = joystick([])
+	except KeyboardInterrupt:
+		print 'Interception!'
+		try:
+			sys.exit(0)
+		except:
+			os.exit(0)
+	return out
 
 if __name__== "__main__":
 	app.run(host='0.0.0.0', threaded=True)
