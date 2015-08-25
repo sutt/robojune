@@ -13,6 +13,11 @@ import arduino
 
 	#9:42 - added keyboard interup exception in req handling func wrapping the ardu poll loop. but creating the b object is still done on ini, so we expect this server to fail on 2nd request but to fail elegantly
 	
+	#Failed to run once, could only be interrupt 1/2 times
+	#9:51 - add the correct way to call b, 
+	
+	#then, try turning off threading
+	
 devices = ['/dev/ttyACM0','/dev/ttyACM1']
 baud = 115200
 timeout = 10
