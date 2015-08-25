@@ -40,10 +40,11 @@ baud = 115200
 timeout = 3
 
 def initsmoothie():
-	conn = serial.Serial(device,baud,timeout=timeout)
+	conn = serial.Serial(devices[1],baud,timeout=timeout)
 	return conn
 
 def getpos(conn):
+	
 	conn.write("get pos\n")
 	time.sleep(2)
 	out = conn.readlines()
