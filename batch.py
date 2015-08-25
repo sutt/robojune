@@ -37,13 +37,35 @@ pollInt = False
 	
 devices = ['/dev/ttyACM0','/dev/ttyACM1']
 baud = 115200
-timeout = 10
+timeout = 3
+
+def initsmoothie():
+	conn = serial.Serial(device,baud,timeout=timeout)
+	return conn
+
+def getpos(conn):
+	conn.write("get pos\n")
+	time.sleep(.2)
+	out = conn.readlines()
+	out = filter(lambda e: 'Position' in e, out)[0]
+	out = float(out[out.index("X:")+2 : out.index(",")])
+	out += 17
+	return str(out)
+	
+def buildgcode(val,pos):
+	parseX = True
+	if val > 530:
+	return 1
 
 def pollj():
 	ret = []
 	pin = 1	
+	
 	global pollInt
 	pollInt = False
+	
+	#conn = initsmoothie()
+
 	try:
 		b = arduino.Arduino('/dev/ttyACM0')
 		b.output([])
@@ -57,18 +79,25 @@ def pollj():
 			print 'pollInt'
 			pollInt = False
 			break
-		val = None
+		
 		try:
+			val = None
 			val = b.analogRead(pin)
+			print val
+			
 		except:
 			print 'couldnt analogread ' + str(i)
+
+		#pos = getpos(conn)
+		#gcode = buildgcode(val,pos)
+		#smoothie(gcode)
+		#ret.append((val,gcode))
+		
+		time.sleep(.5)
 		ret.append(val)
-		print val
-		time.sleep(0.5)
+		
 	return " | ".join(ret)
 
-def getpos():
-	return 1
 
 def smoothie(cmd):
 	ret = ""
@@ -84,8 +113,6 @@ def smoothie(cmd):
 		ret = " | ".join(out1)
 	except:
 		print 'not able to run cmd'
-		
-	
 	return ret 
   
 app = Flask(__name__)
@@ -94,6 +121,13 @@ app = Flask(__name__)
 def hello():
 	return 'Hello World!'
 
+@app.route('/getpos/')
+def reqpos():
+	conn = initsmoothie()
+	out = getpos(conn)
+	conn.close()
+	return out
+	
 @app.route('/smoothie/')
 def reqsmoothie():
 	return smoothie('')
