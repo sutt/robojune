@@ -55,7 +55,8 @@ def getpos(conn):
 def buildgcode(val,pos):
 	parseX = True
 	if val > 530:
-	return 1
+		return 1
+	return 0
 
 def pollj():
 	ret = []
