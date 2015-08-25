@@ -18,20 +18,22 @@ pin = 1
 
 def joystick(data):
 	ret = []
-	b.output([])
+	#b.output([])
 
-	for i in range(100):
-		val = None
+	for i in range(20):
 		try:
-			val = b.analogRead(pin)
+			val = None
+			try:
+				val = b.analogRead(pin)
+				print val
+			except:
+				print 'couldnt analogread'
+				
+			ret.append(val)
 			print val
+			time.sleep(0.5)
 		except:
-			print 'couldnt analogread'
-			
-		ret.append(val)
-		print val
-		time.sleep(0.1)
-	
+			print str(i)
 	return " | ".join(ret)
 
 def getpos():
