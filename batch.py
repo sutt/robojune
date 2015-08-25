@@ -42,6 +42,8 @@ timeout = 10
 def pollj():
 	ret = []
 	pin = 1	
+	global pollInt
+	pollInt = False
 	try:
 		b = arduino.Arduino('/dev/ttyACM0')
 		b.output([])
@@ -50,7 +52,7 @@ def pollj():
 		print 'couldnt create b'
 
 	for i in range(10):
-		global pollInt
+		
 		if pollInt:
 			print 'pollInt'
 			pollInt = False
