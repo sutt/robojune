@@ -31,15 +31,13 @@ devices = ['/dev/ttyACM0','/dev/ttyACM1']
 baud = 115200
 timeout = 10
 
-b = arduino.Arduino('/dev/ttyACM0')
-pin = 1
-
 def pollj():
 	ret = []
 	pin = 1	
 	try:
 		b = arduino.Arduino('/dev/ttyACM0')
 		b.output([])
+		pin = 1
 	except:
 		print 'couldnt create b'
 
