@@ -21,7 +21,7 @@ import arduino
 	#error reports return from threading module, let
 
 thread_bool = False
-if len(sys.argv) > 1
+if len(sys.argv) > 1:
 	thread_bool = True
 	
 	
