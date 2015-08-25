@@ -13,8 +13,26 @@ from arduino import Arduino
 from arduino import Arduino
 import time
 
-b = Arduino('/dev/ttyACM0')
-pin = 1
+def pollj():
+	ret = []
+	pin = 1	
+	try:
+		b = Arduino('/dev/ttyACM0')
+		b.output([])
+	except:
+		print 'couldnt create b'
+
+	for i in range(10):
+		val = None
+		try:
+			val = b.analogRead(pin)
+		except:
+			print 'couldnt analogread ' + str(i)
+		ret.append(val)
+		print val
+		time.sleep(0.5)
+	return " | ".join(ret)
+
 
 app = Flask(__name__)
 
@@ -24,22 +42,15 @@ def hello():
 	
 @app.route('/joystickon/')
 def joystickon():
-	
-	ret = []
-	b.output([])
-
-	for i in range(10):
-		val = None
+	try:
+		out = pollj()
+	except KeyboardInterrupt:
+		print 'Interception!'
 		try:
-			val = b.analogRead(pin)
+			sys.exit(0)
 		except:
-			print 'couldnt analogread'
-			
-		ret.append(val)
-		print val
-		time.sleep(0.5)
-	
-	return " | ".join(ret)
+			os._exit(0)
+	return out
 	
 if __name__== "__main__":
 	app.run(host='0.0.0.0')

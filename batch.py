@@ -7,7 +7,8 @@ import myfunc
 sys.path.append(os.path.join(os.path.abspath('.'),"arduapi", "arduino"))
 import arduino
 
-##GOAL: differentiate tty's and joystick turn on and read
+##GOAL - handle flask errors, turn joystick on!
+	#can wait for a keyboard interupt, with an try/except wrapper
 
 devices = ['/dev/ttyACM0','/dev/ttyACM1']
 baud = 115200
