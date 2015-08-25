@@ -116,6 +116,7 @@ def joystickon():
 def joystickoff():
 	global pollInt
 	pollInt = True
+	return str(pollInt)
 
 if __name__== "__main__":
 	app.run(host='0.0.0.0', threaded=thread_bool)
