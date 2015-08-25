@@ -21,11 +21,19 @@ import arduino
 	#error reports return from threading module, let
 	
 	#10:07: removing threading didnt work, now just write the code correctly...
+	
+	#10:12 we got it working on multiple requests 
+	#can threading get added back in to allow interrupts - YES
+	
+	# build a:
+		#joystickon = poll loop that calls smoothie
+		#a secondary request that turns off joystick ability
 
 thread_bool = False
 if len(sys.argv) > 1:
 	thread_bool = True
-	
+
+pollInt = False
 	
 devices = ['/dev/ttyACM0','/dev/ttyACM1']
 baud = 115200
@@ -42,6 +50,11 @@ def pollj():
 		print 'couldnt create b'
 
 	for i in range(10):
+		global pollInt
+		if pollInt:
+			print 'pollInt'
+			pollInt = False
+			break
 		val = None
 		try:
 			val = b.analogRead(pin)
@@ -98,6 +111,12 @@ def joystickon():
 		except:
 			os.exit(0)
 	return out
+	
+@app.route('/pollInt/')
+def joystickoff():
+	global pollInt
+	pollInt = True
+	return str(pollInt)
 
 if __name__== "__main__":
 	app.run(host='0.0.0.0', threaded=thread_bool)
