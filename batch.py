@@ -45,11 +45,12 @@ def initsmoothie():
 
 def getpos(conn):
 	conn.write("get pos\n")
-	time.sleep(.2)
+	time.sleep(2)
 	out = conn.readlines()
 	out = filter(lambda e: 'Position' in e, out)[0]
 	out = float(out[out.index("X:")+2 : out.index(",")])
 	out += 17
+	print out
 	return str(out)
 	
 def buildgcode(val,pos):
