@@ -19,7 +19,7 @@ def takepic(fn):
 
 if __name__ == "__main__":
 	arg = dict(fname = sys.argv[1]) if len(sys.argv) > 1 else {}
-	fn = tname(**arg)
+	fn = fname(**arg)
 	takepic(fn)
 	print 'done'
 	
