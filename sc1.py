@@ -7,6 +7,9 @@ import time
 device = '/dev/ttyACM0'
 baud = 115200
 
+#  picocom --baud 115200 --echo --omap crlf --imap lfcrlf /dev/ttyACM0
+# to exit: Cntrl+a Cntrl+q
+
 #if len(sys.argv) > 1:
 #    timeout = int(sys.argv[1])
 #else:

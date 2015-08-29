@@ -1,0 +1,103 @@
+virtualenv sci1
+source scq
+
+FLASK --------------
+
+Arduino, RPi, Flask: snippet
+https://github.com/JanStevens/ArduinoPi-Python/blob/master/main.py
+	
+	his blog
+	http://www.fritz-hut.com/
+	
+	arduimopi with php
+	https://github.com/JanStevens/ArduinoPi-Controller
+	
+Flask ServerSideEvents
+https://gist.github.com/Chris2048/3680055
+
+StackOverflow: Flask + pyserial
+http://stackoverflow.com/questions/14022933/pyserial-reading-serial-port-in-flask-maybe-using-gevent
+
+Erik Oosterwaut - ASP -> Python
+https://nl.linkedin.com/in/erikoosterwaal
+http://stackoverflow.com/users/696712/rico-suave
+
+	ASP.NET vs Django migration
+	http://stackoverflow.com/questions/9665002/port-asp-to-django-or-asp-net/9670524#9670524
+	https://mail.python.org/pipermail/python-win32/2010-December/010951.html
+
+Flask on Heroku
+https://devcenter.heroku.com/articles/getting-started-with-python-o#start-flask-app-inside-a-virtualenv
+
+----------------
+
+Rpi SSH over ethernet
+http://raspberrypi.stackexchange.com/questions/11684/how-can-i-connect-my-pi-directly-to-my-pc-and-share-the-internet-connection
+	under ethernet "status" then open "properties",
+	then under sharing check both boxes
+	
+
+Wifi for raspian
+	sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+	sudo iwlist
+	ifconfig wlan0
+	
+Tightvncserver
+http://www.howtogeek.com/141157/how-to-configure-your-raspberry-pi-for-remote-shell-desktop-and-file-transfer/all/
+
+
+Arudino + Joystick------------------
+
+pi@sutpi2sandisk ~/Desktop/flask1/arduapi $ python sample_analogread.py
+Traceback (most recent call last):
+  File "sample_analogread.py", line 7, in <module>
+    b.output([])
+  File "/home/pi/Desktop/flask1/arduapi/arduino/arduino.py", line 18, in output
+    self.__sendData(len(pinArray))
+  File "/home/pi/Desktop/flask1/arduapi/arduino/arduino.py", line 58, in __sendData
+    while(self.__getData()[0] != "w"):
+  File "/home/pi/Desktop/flask1/arduapi/arduino/arduino.py", line 65, in __getData
+    input_string = input_string.decode('utf-8')
+  File "/usr/lib/python2.7/encodings/utf_8.py", line 16, in decode
+    return codecs.utf_8_decode(input, errors, True)
+UnicodeDecodeError: 'utf8' codec can't decode byte 0xff in position 0: invalid start byte
+pi@sutpi2sandisk ~/Desktop/flask1/arduapi $ python sample_analogread.py
+510
+509
+
+Telecast of coding + literate pogramming
+https://medium.com/backchannel/the-strange-appeal-of-watching-coders-code-5c677b2c34ec
+
+
+Share info between requests?
+
+Handling multiple requests: 
+	option1:app.run(threaded=True)	http://stackoverflow.com/questions/14672753/handling-multiple-requests-in-flask
+	option2:new wsgi - 
+
+
+Flask timeouts
+http://stackoverflow.com/questions/18127128/time-out-issues-with-chrome-and-flask
+
+Adrain @PyImageSearch Tut's
+    
+    Old OpenCV 2.4    http://www.pyimagesearch.com/2015/02/23/install-opencv-and-python-on-your-raspberry-pi-2-and-b/
+
+    New Tut for 3.0 http://www.pyimagesearch.com/2015/07/27/installing-opencv-3-0-for-both-python-2-7-and-python-3-on-your-raspberry-pi-2/
+
+    How to interface from opencv to picamera http://www.pyimagesearch.com/2015/03/30/accessing-the-raspberry-pi-camera-with-opencv-and-python/
+	
+	
+Brenton Strong - Money (that's what I want)
+
+client for smoothie control
+http://smoothieware.org/pronterface
+
+threading python and arduino
+https://github.com/gregpinero/ArduinoPlot/blob/master/Arduino_Monitor.py
+
+python arduino api
+https://github.com/vascop/Python-Arduino-Proto-API-v2
+
+override readline method to add timeout
+http://pvbookmarks.readthedocs.org/en/latest/devel/communication/serial/python/examples/pyserial/
