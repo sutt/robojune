@@ -6,9 +6,9 @@ def fname(**kwargs):
 		if fname in os.listdir(os.getcwd()):
 			iext = fname.index(".")
 			for i in range(1, iext):
-				if not trail.isdigit():
+				if not fname[iext - i].isdigit():
 					break
-			trail = (0,"1") if i==1 else (i-1,fname[iext-i:iext])
+			trail = (0,"1") if i==1 else (i-1,str( 1 + int(fname[iext-i:iext])))
 			fname = fname[:iext - trail[0]] + trail[1] + fname[iext:]
 		else:
 			break
