@@ -34,22 +34,7 @@ Arduino('/dev/ttyACM0')
 pi$>python sample_analogread.py  
 #prints for VCC connected to analog 1 pin
 
-client for smoothie control
-http://smoothieware.org/pronterface
-
-threading python and arduino
-https://github.com/gregpinero/ArduinoPlot/blob/master/Arduino_Monitor.py
-
-python arduino api
-https://github.com/vascop/Python-Arduino-Proto-API-v2
-
-override readline method to add timeout
-http://pvbookmarks.readthedocs.org/en/latest/devel/communication/serial/python/examples/pyserial/
-
-
 7.14
-
-Brenton Strong - Money (that's what I want)
 
 Save&Quit in vi in putty: cntrl-c, then ":wq"
 
@@ -68,13 +53,14 @@ d.h264
 
 #To exit git diff type: ":q Enter" or "Shift + Q"
 
-Adrain @PyImageSearch Tut's
-    
-    Old OpenCV 2.4    http://www.pyimagesearch.com/2015/02/23/install-opencv-and-python-on-your-raspberry-pi-2-and-b/
+8.29
 
-    New Tut for 3.0 http://www.pyimagesearch.com/2015/07/27/installing-opencv-3-0-for-both-python-2-7-and-python-3-on-your-raspberry-pi-2/
+smoothie commands:
+picocom --baud 115200 --echo --omap crlf --imap lfcrlf /dev/ttyACM0
+	to exit (picocom): Cntrl+a Cntrl+q			
+	
 
-    How to interface from opencv to picamera http://www.pyimagesearch.com/2015/03/30/accessing-the-raspberry-pi-camera-with-opencv-and-python/
+
 
 
 
