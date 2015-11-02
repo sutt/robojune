@@ -25,6 +25,7 @@ def sendc(cmd):
 def readc(conn, timeout):
     return 1
 
+sendc( "G0 Z0")
 sendc( "get pos \n")
 time.sleep(.1)
 
